@@ -61,6 +61,15 @@ variable "ssh_public_key_file" {
   type = string
 }
 
+variable "custom_tags" {
+  type    = map(string)
+  default = {
+    Owner                  = "c.klewar@f5.com"
+    f5xc-feature           = "azure-vnet-singlenode"
+    f5xc-ves-io-creator-id = "c.klewar@f5.com"
+  }
+}
+
 provider "volterra" {
   api_p12_file = var.f5xc_api_p12_file
   url          = var.f5xc_api_url
